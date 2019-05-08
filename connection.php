@@ -5,7 +5,7 @@
         private $servername = "localhost";
         private $username = "root";
         private $password = "";
-        private $database = "sample_ddb";
+        private $database = "canvas";
         public $conn;
         
         //Constructor

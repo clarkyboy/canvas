@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2019 at 08:38 AM
+-- Generation Time: May 08, 2019 at 10:38 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `sample_ddb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `prod_id` int(11) NOT NULL,
+  `prod_name` varchar(50) NOT NULL,
+  `prod_desc` varchar(50) NOT NULL,
+  `prod_img` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`prod_id`, `prod_name`, `prod_desc`, `prod_img`) VALUES
+(1, 'Cellphone', 'Skyflakes', 'images/Gryffindor.png'),
+(2, 'Skyflakes', 'Samsung A10', 'images/gd.jpg');
 
 -- --------------------------------------------------------
 
@@ -48,6 +69,12 @@ INSERT INTO `user` (`user_id`, `user_login_name`, `user_login_pass`, `user_type`
 --
 
 --
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`prod_id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -56,6 +83,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
