@@ -1,17 +1,15 @@
 <?php
-
+    
     require 'user.php';
-
     $user = new User;
-    if(isset($_POST['login'])){
-        $row = $user->login($_POST['username'], md5($_POST['password']));
-        if($row['user_type'] == 'A'){
-            header('Location: admin.php');
-        }elseif($row['user_type'] == 'U'){
-            header('Location: users.php');
-        }else{
-            echo "User not found!";
-        }
+
+    if(isset($_POST['register'])){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        //md5
+        $password = md5($password);
+        echo $password;
+        $user->register($username, $password);
     }
 ?>
 <!DOCTYPE html>
@@ -24,15 +22,15 @@
 </head>
 <body>
     <form action="" method="post">
-        <div>
+        <p>
             <label for="">Username</label>
             <input type="text" name="username" id="">
-        </div>
-        <div>
+        </p>
+        <p>
             <label for="">Password</label>
             <input type="password" name="password" id="">
-        </div>
-        <input type="submit" value="Login" name="login">
+        </p>
+        <input type="submit" value="Register" name="register">
     </form>
 </body>
 </html>

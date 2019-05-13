@@ -10,6 +10,11 @@
             $row = $result->fetch_assoc();
             return $row;
         }   
+        public function register($username, $password){
+            $sql = "INSERT INTO user (user_login_name, user_login_pass, user_type) 
+                    VALUES ('$username', '$password', 'U')";
+            $result = $this->conn->query($sql);
+        }
 
     }
 
