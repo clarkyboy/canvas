@@ -16,6 +16,12 @@
             $result = $this->conn->query($sql);
         }
 
+        public function checksDuplicate($username, $password){
+            $sql = "SELECT count(*) AS noofduplicate FROM user WHERE user_login_name = '$username' OR user_login_pass = '$password'";
+            $result = $this->conn->query($sql);
+            $row = $result->fetch_assoc();
+            return $row;
+        }
     }
 
 

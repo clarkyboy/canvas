@@ -8,8 +8,15 @@
         $password = $_POST['password'];
         //md5
         $password = md5($password);
-        echo $password;
-        $user->register($username, $password);
+        //echo $password;
+        $count = $user->checksDuplicate($username, $password);
+        if($count['noofduplicate'] > 0){
+            echo "User already existing";
+        }else{
+            echo "Added successfully";
+            $user->register($username, $password);
+        }
+        
     }
 ?>
 <!DOCTYPE html>
